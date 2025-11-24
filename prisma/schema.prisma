@@ -1,0 +1,145 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  SUPER_ADMIN     
+  MODERATOR       
+  CLAN_OWNER      
+  CLAN_MANAGER    
+  USER            
+}
+
+// 1. ORGANIZATION (KLAN) - Multi-tenancy
+model Organization {
+  id             String    @id @default(cuid())
+  name           String    @unique 
+  apiKey         String    @unique @default(cuid())
+  paymentEmail   String    
+
+  // Licenčná ochrana Panela
+  isActive       Boolean   @default(true) 
+  expiresAt      DateTime? 
+  
+  // GDPR/SOFT DELETE
+  deletedAt      DateTime? 
+
+  // Vzťahy
+  ownerId        String    @unique 
+  owner          User      @relation("OrganizationOwner", fields: [ownerId], references: [id])
+
+  users          User[]    @relation("OrganizationMembers") 
+  licenses       License[]
+  auditLogs      AuditLog[]
+
+  createdAt      DateTime  @default(now())
+}
+
+
+// 2. USER (SPRÁVCA/ČLEN)
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  password       String    
+  
+  nickname       String
+  discordId      String?   
+  role           Role      @default(USER) 
+  
+  // GDPR/SOFT DELETE
+  deletedAt      DateTime? 
+  isAnonymized   Boolean   @default(false) 
+  
+  // Vzťahy
+  organizationId String
+  organization   Organization @relation("OrganizationMembers", fields: [organizationId], references: [id])
+  
+  billingDetails BillingDetails?
+  auditLogs      AuditLog[] 
+
+  ownedOrganization Organization? @relation("OrganizationOwner") 
+  
+  createdAt      DateTime  @default(now())
+}
+
+// 2.1 BILLING DETAILS (FAKTURAČNÉ ÚDAJE)
+model BillingDetails {
+  id             String    @id @default(cuid())
+  
+  userId         String    @unique
+  user           User      @relation(fields: [userId], references: [id])
+  
+  // Fakturačné údaje (Sú nepovinné pre GDPR/Anonymizáciu)
+  companyName    String?
+  fullName       String?
+  street         String?
+  city           String?
+  zipCode        String?
+  country        String?
+  taxId          String?
+  
+  createdAt      DateTime  @default(now())
+}
+
+// 3. PRODUCT (SOFTVÉR)
+model Product {
+  id                String     @id @default(cuid())
+  name              String     @unique 
+  version           String     @default("1.0.0") 
+  
+  licenses          License[] 
+  
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+}
+
+// 4. LICENSE (LICENČNÝ KĽÚČ)
+model License {
+  id             String       @id @default(cuid())
+  key            String       @unique 
+  @@index([key]) // Index pre ultra-rýchle overovanie kľúča
+  
+  productId      String
+  product        Product      @relation(fields: [productId], references: [id]) 
+
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id]) 
+
+  expiresAt      DateTime?    
+  
+  isBanned       Boolean      @default(false) 
+  banReason      String?      
+  lastCheck      DateTime?    
+  
+  createdAt      DateTime     @default(now())
+}
+
+// 5. AUDIT LOG (BEZPEČNOSTNÝ ZÁZNAM)
+model AuditLog {
+  id             String       @id @default(cuid())
+  action         String       
+  details        String?      
+  
+  userId         String
+  user           User         @relation(fields: [userId], references: [id])
+  
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  
+  ipAddress      String       
+  location       String?      
+  userAgent      String?      
+  
+  createdAt      DateTime     @default(now())
+}
