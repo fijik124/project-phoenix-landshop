@@ -9,11 +9,23 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import styles from '@/app/ui/header/navbar.module.css';
+import { getHmrRefreshHash } from 'next/dist/server/app-render/work-unit-async-storage.external';
 
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/', icon: HomeIcon },
+  {
+    name: 'About',
+    icon: DocumentDuplicateIcon,
+  },
+  {
+    name: 'Demo',
+    href: 'https://exemple.com',
+    icon: DocumentDuplicateIcon,
+  },
+];
+const subLinks = [
+  { group: '', name: 'Home', href: '/', icon: HomeIcon },
   {
     name: 'About',
     href: '/about',

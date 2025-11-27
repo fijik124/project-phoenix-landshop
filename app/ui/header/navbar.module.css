@@ -1,5 +1,52 @@
 .headerContainer {
+    background-color: #0e0e13;
+}
+
+.linkContainer {
     display: flex;
     flex-direction: row;
-    background-color: #141414;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.linkItem {
+    display: flex;
+    flex-direction: row;
+    color: #a0a2ab;
+}
+
+.rightSide {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.languageSelectore {
+    display: flex;
+    flex-direction: row;
+    gap: 2;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: #a0a2ab;
+}
+
+.clasicButton {
+    font-size: 1.25rem !important;
+    color: #fff !important;
+    font-family: Open Sans !important;
+    font-weight: 500 !important;
+    border: 1px solid #900b09;
+    border-radius: .375rem;
+    background-color: rgba(255, 4, 0, .1);
+    padding-inline: 1em !important;
+    margin-left: 1em;
+    padding: 6 20 6 20;
+}
+.clasicButton:hover {
+    background-color: #900b09a8 !important;
+}
+.background {
+    background-color: #111112;
 }
