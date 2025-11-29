@@ -89,7 +89,7 @@ export default function NavBar() {
   return (
     <>
       <div
-        className={`flex flex-row border-b-2 border-blue-500 w-full ${styles.headerContainer}`}
+        className={`flex flex-row border-b-2 ${styles.borderBottom} w-full ${styles.headerContainer}`}
       >
         <div className={`container mx-auto p-[8%] py-2`}>
           <div className={`flex`}>

@@ -5,3 +5,11 @@
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
 }
+
+.bgMain {
+    background-color: #0e0e13;
+}
+
+.firsGradient {
+  background: linear-gradient(230deg, #f000 70%, #ff00003c 105.49%);
+}

@@ -2,6 +2,10 @@
     background-color: #0e0e13;
 }
 
+.borderBottom {
+    border-color: #A0A2AB;
+}
+
 .linkContainer {
     display: flex;
     flex-direction: row;
