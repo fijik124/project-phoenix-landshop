@@ -105,7 +105,7 @@ export default function NavBar() {
   return (
     // Use an accessible tag like <nav> for navigation
     <nav className={clsx(
-        `w-full sticky top-0 z-40`, // Added z-index and sticky for common header behavior
+        `fixed w-full top-0 left-0 z-40`, // Added z-index and sticky for common header behavior
         styles.headerContainer,
         styles.borderBottom // Assuming this controls the border color/style
       )}

@@ -1,6 +1,6 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
-import NavBar from '@/app/ui/header/main';
+import ResponsiveHeader from '@/app/ui/header/headerLayout';
 
 export default function RootLayout({
   children,
@@ -9,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <header><NavBar /></header>
+      <header><ResponsiveHeader /></header>
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
