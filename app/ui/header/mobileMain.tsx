@@ -6,73 +6,14 @@ import Image from "next/image";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import SPEARLogo from "@/app/ui/logo/logo";
-import SubLink from "@/app/ui/header/subLink";
+import { NAV_LINKS, SUB_LINKS } from "@/app/_nav";
 // Import icons needed for the links
 import {
-  PowerIcon,
-  UserGroupIcon,
-  HomeIcon,
-  DocumentDuplicateIcon,
   ChevronDownIcon,
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
-// --- DATA DEFINITIONS (Ideally in a separate /config file) ---
-
-// Define a type for better structure and future-proofing
-type NavLinkItem = {
-  name: string;
-  href: string | null;
-  icon: typeof HomeIcon; // Use one of the imported icons as a type reference
-  group?: string;
-  isExternal?: boolean; // Added for clarity
-};
-
-const NAV_LINKS: NavLinkItem[] = [
-  {
-    name: "About",
-    href: null,
-    icon: DocumentDuplicateIcon,
-    group: "about",
-  },
-  {
-    name: "Demo",
-    href: "https://exemple.com",
-    icon: DocumentDuplicateIcon,
-    isExternal: true,
-  },
-  {
-    name: "RoadMap",
-    href: "/roadmap",
-    icon: DocumentDuplicateIcon,
-    group: "roadmap",
-  },
-];
-
-const SUB_LINKS = [
-  {
-    group: "about",
-    name: "About",
-    href: "/about",
-    description: "Basic info about the project.",
-    icon: UserGroupIcon,
-  },
-  {
-    group: "about",
-    name: "Project Goal",
-    href: "/why",
-    description: "Why this project exists, what is our main goal.",
-    icon: DocumentDuplicateIcon,
-  },
-  {
-    group: "about",
-    name: "Our Team",
-    href: "/who",
-    description: "Basic info about us as developers and 'company'.",
-    icon: UserGroupIcon,
-  },
-];
 import styles from "@/app/ui/header/navbar.module.css";
 
 export default function NavBar() {

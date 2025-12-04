@@ -75,6 +75,20 @@ export default function Page() {
           </div>
         </div>
       </div>
+      <div className={`bg-gray-800 h-[120px] w-full flex flex-row items-center justify-center gap-8`}>
+            <div className={`text-white text-center`}>
+              <h3 className={`font-bold text-2xl`}>5</h3>
+              <p className={`text-gray-500`}>Active Customers</p>
+            </div>
+            <div className={`text-white text-center`}>
+              <h3 className={`font-bold text-2xl`}>25</h3>
+              <p className={`text-gray-500`}>InDev Features</p>
+            </div>
+            <div className={`text-white text-center`}>
+              <h3 className={`font-bold text-2xl`}>50</h3>
+              <p className={`text-gray-500`}>Already Features</p>
+            </div>
+      </div>
 
       {/* --- FEATURES SECTION WRAPPER: Full-width background and gradient --- */}
       {/* Note: Feature sections are usually NOT vertically centered; they flow naturally. */}
