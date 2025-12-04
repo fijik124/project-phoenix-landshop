@@ -36,6 +36,10 @@ export default function Footer() {
             </Link>
           </div>
 
+          <div>
+            <p className={`text-white`}>© Copyright SPARTANS, all rights reserved</p>
+          </div>
+
           {/* Right Side: Columns Container */}
           {/* 💥 FIX: Changed items-center to items-start to align all columns to the top */}
           <div className={`flex flex-row items-start gap-16 text-white`}> 
