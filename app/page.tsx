@@ -95,7 +95,7 @@ export default function Page() {
       <div className={`w-full py-20 px-10 ${GRADIENT_FEATURES}`}>
         <div 
           // INNER CONTAINER: Centered content
-          className={`container mx-10 flex flex-col gap-12`}
+          className={`container flex flex-col gap-12`}
         >
           
           {/* Section Header (Already Centered) */}

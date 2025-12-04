@@ -26,7 +26,7 @@ export const NAV_LINKS: NavLinkItem[] = [
   },
   {
     name: "Demo",
-    href: "https://exemple.com",
+    href: "https://arma3spartans.com/",
     icon: DocumentDuplicateIcon,
     isExternal: true, // Mark external links
   },
@@ -43,28 +43,12 @@ export const NAV_LINKS: NavLinkItem[] = [
 ];
 
 export const SUB_LINKS = [
-  // ... your existing subLinks data ...
-  {
-    group: "about",
-    name: "Home",
-    href: "/",
-    description: "Go to the main landing page.",
-    icon: HomeIcon, // Changed icon for Home
-  },
   {
     group: "about",
     name: "About",
     href: "/about",
     description: "Basic info about the project.",
     icon: UserGroupIcon,
-  },
-  // Note: Your original data had duplicate 'Why' links. Cleaned up/renamed for clarity.
-  {
-    group: "about",
-    name: "Project Goal",
-    href: "/why",
-    description: "Why this project exists, what is our main goal.",
-    icon: DocumentDuplicateIcon,
   },
   {
     group: "about",
@@ -74,4 +58,3 @@ export const SUB_LINKS = [
     icon: UserGroupIcon,
   },
 ];
-// --- END DATA DEFINITIONS ---
