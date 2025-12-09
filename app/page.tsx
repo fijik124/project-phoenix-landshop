@@ -2,6 +2,7 @@
 
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 // Assuming this provides a dark base background color
 import styles from "@/app/ui/home.module.css";
 import { lusitana } from "@/app/ui/fonts";
@@ -24,6 +25,7 @@ const GRADIENT_FEATURES =
   "bg-gradient-to-tl from-gray-900 via-gray-800 to-gray-950";
 
 export default function Page() {
+  const router = useRouter();
   const [submissionMessage, setSubmissionMessage] = useState<{
     type: "success" | "error" | "";
     message: string;
@@ -56,8 +58,8 @@ export default function Page() {
 
     // Spracovanie odpovede zo servera
     if (result.status == "success") {
-      setSubmissionMessage({ type: "success", message: result.message });
       reset(); // Vyčistenie formulára po úspešnom odoslaní
+      router.push("/status/success");
     } else if (result.status == "error") {
       setSubmissionMessage({ type: "error", message: result.message });
     }
