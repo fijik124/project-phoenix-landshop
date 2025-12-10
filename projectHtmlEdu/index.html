@@ -1,12 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Projekt z Jazykov Webu</h1>
-    <iframe src="https://www.w3schools.com" title="W3Schools Free Online Web Tutorials"></iframe>
-</body>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projekt z Jazykov Webu - SPEAR</title>
+    <link rel="stylesheet" href="./style/main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🎯 Projekt z Jazykov Webu</h1>
+      <p class="subtitle">SPEAR - Interaktívny systém pre arma 3 klany</p>
+    </header>
+
+    <div class="container">
+      <div class="info-box">
+        <h2>📋 O Projekte</h2>
+        <p>
+          Kedže som projekt písal v reacte tak som neprišiel na spôsob ako zalať
+          kód na edu/moodle tak som sa rozhodol spraviť jednoduchú stránku ktorá
+          bude obsahovať <strong>iframe s projektom</strong> zároveň táto stránka odkazuje aj na public repository s projektom na <strong>GitHube</strong>.
+        </p>
+        <br>
+        <p>
+          V projekte SPEAR je využitý moderné stack technologíe <br>
+          > Next.JS <br>
+          > TypeScript <br>
+          > TailwindCSS <br>
+          <br>
+          <br>
+          -- Dátabázové riešenie v finálnej verzií projektu -- <br>
+          Bude využíváť Prisma na managovanie udajov a jednoduchu správu
+          databázy v projekte. Ako hlavný hosting/štruktúru databázy budem
+          využívať PostrgrsSQL. Kvlôli modernému prístupu k udajom a celkovej
+          štruktúre databázy.
+          <br>
+          > Prisma ORM <br>
+          > PostgreSQL <br>
+          <br>
+          Dyzajnovou predlohou na projekt bol náš pôvodní web <a href="https://arma3spartans.com">ODKAZ</a><br>
+          Tento projekt bol vytvorený spolu aj s discord botom ktorý komunikuje s webom<br>
+          Zároveň aj s modernou databázou ktorá slúži na uschovanie všetkych dát ktore naše systémy využívajú.<br>
+          Celý kód sa dá nájsť na <a href="https://github.com/fijik124/project-phoenix-landshop">GitHub</a>
+        </p>
+      </div>
+
+      <div class="iframe-wrapper">
+        <iframe
+          src="http://spartans-skola-sgfxci-d38ecf-188-245-125-8.traefik.me/"
+          title="SPEAR - Project Phoenix Landshop"
+          loading="lazy"
+        >
+        </iframe>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 SPEAR Project | Projekt z Jazykov Webu</p>
+    </footer>
+  </body>
 </html>
