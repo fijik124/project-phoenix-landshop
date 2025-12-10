@@ -37,6 +37,7 @@ export default function Page() {
       name: "",
       email: "",
       question: "",
+      agreeToTerms: false,
     },
   });
 
@@ -309,36 +310,30 @@ export default function Page() {
               with any questions or feedback.
             </p>
           </div>
-          {submissionMessage && (
+          {submissionMessage?.type === "error" && (
             <div
-              className={`flex mx-auto mt-4 p-3 mb-4 rounded-lg text-sm font-medium max-w-md justify-center ${
-                submissionMessage?.type === "success"
-                  ? "bg-green-600 text-white"
-                  : "bg-red-600 text-white"
-              }`}
-            >
+              className={`flex mx-auto mt-4 p-3 mb-4 rounded-lg text-sm font-medium max-w-md justify-center bg-red-600 text-white`}            >
               {submissionMessage?.message}
             </div>
           )}
           <div className="w-full max-w-2xl mx-auto flex justify-center">
-            {/* Správy o úspechu/chybe */}
 
             <form
               onSubmit={handleSubmit(onSubmitFeadback)}
               className="w-full flex flex-col space-y-6"
             >
-              {/* Meno Field */}
+              
               <div>
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-300 mb-1"
                 >
-                  Meno:
+                  Your name:
                 </label>
                 <input
                   id="name"
                   type="text"
-                  placeholder="Ján Novák"
+                  placeholder="Andreas Brown"
                   {...register("name")}
                   className="w-full bg-gray-700 text-white p-3 rounded-lg border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-150"
                 />
@@ -349,13 +344,13 @@ export default function Page() {
                 )}
               </div>
 
-              {/* Email Field */}
+              
               <div>
                 <label
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-300 mb-1"
                 >
-                  Email:
+                  Your email:
                 </label>
                 <input
                   id="email"
@@ -371,13 +366,13 @@ export default function Page() {
                 )}
               </div>
 
-              {/* Otázka Field */}
+              
               <div>
                 <label
                   htmlFor="question"
                   className="block text-sm font-medium text-gray-300 mb-1"
                 >
-                  Tvoja otázka:
+                  Your question:
                 </label>
                 <textarea
                   id="question"
@@ -392,6 +387,20 @@ export default function Page() {
                   </p>
                 )}
               </div>
+              <div>
+                <input id="agreeToTerms" type="checkbox" {...register("agreeToTerms")} />
+                <label
+                  htmlFor="agreeToTerms"
+                  className="ml-2 text-sm text-gray-300"
+                >
+                  I agree to the processing of my personal data in accordance with GDPR regulations.
+                </label>
+                {errors.agreeToTerms && (
+                  <p className="mt-1 text-sm text-red-400">
+                    {errors.agreeToTerms.message}
+                  </p>
+                )}
+              </div>
 
               {/* Tlačidlo Odoslať */}
               <button
@@ -399,7 +408,7 @@ export default function Page() {
                 disabled={isSubmitting} // Zablokuje tlačidlo počas odosielania
                 className="w-full py-3 mt-4 text-white font-semibold bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-200 ease-in-out shadow-lg transform hover:scale-[1.01] active:scale-95 disabled:bg-gray-500 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? "Odosielam dáta..." : "Odoslať otázku"}
+                {isSubmitting ? "Sending data..." : "Send Feadback"}
               </button>
             </form>
           </div>

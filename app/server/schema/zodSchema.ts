@@ -10,6 +10,9 @@ export const FeadBackSchema = z.object({
     .string()
     .min(25, "Question must have at least 25 characters")
     .max(500, "Question must have at most 500 characters"),
+  agreeToTerms: z.boolean().refine((val) => val === true, {
+    message: "You must agree to the terms and conditions",
+  }),
 });
 
 export type FeadbackFormValues = z.infer<typeof FeadBackSchema>;

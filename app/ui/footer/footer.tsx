@@ -43,7 +43,9 @@ export default function Footer() {
             {/* Column 2: Contact US */}
             <div className={`flex flex-col items-start`}>
                 <h3 className="font-semibold mb-2">Contact US:</h3>
-                <Link href="/contact" className={`text-sm text-gray-500 hover:text-gray-400`}>Contact</Link>
+                <Link href="/contact" className={`text-sm text-gray-500 hover:text-gray-400`}>Contact Form</Link>
+                <a href="mailto:support@spear.com" className={`text-sm text-gray-500 hover:text-gray-400`}>support@spear.com</a>
+                <a href="tel:+421900000000" className={`text-sm text-gray-500 hover:text-gray-400`}>+421 900 000 000</a>
             </div>
           </div>
         </div>

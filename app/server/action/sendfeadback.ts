@@ -13,7 +13,7 @@ export async function sendFeadback(values: FeadbackFormValues) {
     }
 
 
-    console.log(values.name, values.email, values.question);
+    console.log(values.name, values.email, values.question, values.agreeToTerms);
 
     return {
         status: "success",

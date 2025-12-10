@@ -110,7 +110,7 @@ export default function NavBar() {
             </button>
             
             {/* Register/Login Button */}
-            <Link href={"/register"}>
+            <Link href={"/signup"}>
               <button type="button" className={styles.clasicButton}>
                 Register
               </button>
