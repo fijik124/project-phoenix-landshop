@@ -14,6 +14,7 @@ import styles from "@/app/ui/home.module.css";
 import { lusitana } from "@/app/ui/fonts";
 import { useState } from "react";
 import Carousel from "@/app/ui/carousel/carousel";
+import { signIn } from "next-auth/react";
 
 // Define consistent gradient styles (Full Width)
 const GRADIENT_HERO =
@@ -40,15 +41,19 @@ const CAROUSEL_ITEMS = [
 export default function SignupPage() {
   const [isLogin, setIsLogin] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const toggleMode = (mode: boolean) => {
     if (isLogin === mode) return;
+    setMessage(null); // Clear messages on toggle
     setIsAnimating(true);
     setTimeout(() => {
       setIsLogin(mode);
       setIsAnimating(false);
     }, 300); // Match transition duration
   };
+
 
   return (
     <main className={`flex min-h-screen flex-col ${styles.bgMain}`}>
@@ -112,6 +117,19 @@ export default function SignupPage() {
 
               {/* Form Container with Animation */}
               <div className="p-8 relative min-h-[400px]">
+                {/* Message Display */}
+                {message && (
+                  <div
+                    className={`mb-4 p-3 border font-mono text-sm ${
+                      message.type === "success"
+                        ? "bg-green-900/20 border-green-500 text-green-400"
+                        : "bg-red-900/20 border-red-500 text-red-400"
+                    }`}
+                  >
+                    &gt; {message.text}
+                  </div>
+                )}
+
                 <div
                   className={`transition-all duration-300 ease-in-out transform ${
                     isAnimating ? "opacity-0 scale-95 blur-sm" : "opacity-100 scale-100 blur-0"
@@ -154,9 +172,10 @@ export default function SignupPage() {
                       </div>
                       <button
                         type="submit"
-                        className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-4 uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-orange-900/20 flex items-center justify-center gap-2"
+                        disabled={isLoading}
+                        className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-4 uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-orange-900/20 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        Authenticate <ArrowRightIcon className="w-5 h-5" />
+                        {isLoading ? "AUTHENTICATING..." : "Authenticate"} <ArrowRightIcon className="w-5 h-5" />
                       </button>
                     </form>
                   ) : (
@@ -212,9 +231,10 @@ export default function SignupPage() {
                       </div>
                       <button
                         type="submit"
-                        className="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-4 uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 border border-gray-500 hover:border-orange-400 flex items-center justify-center gap-2 mt-2"
+                        disabled={isLoading}
+                        className="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-4 uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 border border-gray-500 hover:border-orange-400 flex items-center justify-center gap-2 mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        Submit Application <ArrowRightIcon className="w-5 h-5" />
+                        {isLoading ? "PROCESSING..." : "Submit Application"} <ArrowRightIcon className="w-5 h-5" />
                       </button>
                     </form>
                   )}

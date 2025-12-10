@@ -5,8 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -51,19 +50,20 @@ model Organization {
 model User {
   id             String    @id @default(cuid())
   email          String    @unique
-  password       String    
+  emailVerified  DateTime?
+  password        String? 
   
-  nickname       String
-  discordId      String?   
-  role           Role      @default(USER) 
+  nickname        String? 
+  discordId       String?   
+  role            Role      @default(USER)
   
   // GDPR/SOFT DELETE
   deletedAt      DateTime? 
   isAnonymized   Boolean   @default(false) 
   
   // Vzťahy
-  organizationId String
-  organization   Organization @relation("OrganizationMembers", fields: [organizationId], references: [id])
+  organizationId  String? 
+  organization    Organization? @relation("OrganizationMembers", fields: [organizationId], references: [id])
   
   billingDetails BillingDetails?
   auditLogs      AuditLog[] 
@@ -71,6 +71,47 @@ model User {
   ownedOrganization Organization? @relation("OrganizationOwner") 
   
   createdAt      DateTime  @default(now())
+
+  // Relations to NextAuth core models
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String  // e.g., 'oauth', 'email'
+  provider           String  // e.g., 'discord', 'steam'
+  providerAccountId  String  // The unique ID from the external provider
+  refresh_token      String? @db.Text
+  access_token       String? @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String? @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // This composite unique constraint is mandatory for the adapter
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique // The cookie value sent to the browser
+  userId       String
+  expires      DateTime
+
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String // Usually the user's email
+  token      String @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
 // 2.1 BILLING DETAILS (FAKTURAČNÉ ÚDAJE)
