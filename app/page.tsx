@@ -98,12 +98,12 @@ export default function Page() {
               className={`text-base text-gray-300 md:leading-relaxed p-4 mb-6 border-l-4 border-orange-500 bg-gray-900/50 backdrop-blur-sm mx-auto max-w-md font-mono text-left`}
             >
               {`>`} What if I told you that you can have this for free?{" "}
-              <a
-                href="https://spear.com/learn/"
+              <Link
+                href="#prices"
                 className="text-orange-400 hover:text-orange-300 transition-colors font-semibold underline"
               >
                 SPEAR Bundles
-              </a>
+              </Link>
               , brought to you by SPARTANS CZ/SK.
             </p>
 
@@ -200,7 +200,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className={`w-full py-20 ${GRADIENT_FEATURES} relative`}>
+      <div className={`w-full py-20 ${GRADIENT_FEATURES} relative`} id="prices">
         {/* Military corner brackets */}
         <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 border-orange-500 opacity-30"></div>
         <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 border-orange-500 opacity-30"></div>
@@ -270,6 +270,7 @@ export default function Page() {
         </div>
         <div
           className={`w-full md:hidden gap-8 flex-wrap justify-center py-20 px-10`}
+          
         >
           <PlanCard
             id="beginner"
