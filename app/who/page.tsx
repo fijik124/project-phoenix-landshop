@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 // Assuming this provides a dark base background color
 import styles from "@/app/ui/home.module.css";
-import { lusitana } from "@/app/ui/fonts";
+import { orbitron } from "@/app/ui/fonts";
 import Image from "next/image";
 import FeatureCard from "@/app/ui/home/FeatureCard";
 import PlanCard from "@/app/ui/home/planCard";
@@ -39,7 +39,7 @@ export default function Page() {
           {/* Left Column: Text and CTA (Centered Horizontally) */}
           <div className="flex flex-col justify-center py-5 md:w-2/5 text-center">
             <h1
-              className={`${lusitana.className} text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight`}
+              className={`${orbitron.className} text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight`}
             >
               <strong className="block text-orange-500">FIJIK</strong>
               <span className="text-gray-300 text-2xl md:text-3xl block mt-2 uppercase tracking-wider">Lead Developer</span>
@@ -132,7 +132,7 @@ export default function Page() {
           {/* Left Column: Text and CTA (Centered Horizontally) */}
           <div className="flex flex-col justify-center py-10 md:w-2/5 text-center">
             <h1
-              className={`${lusitana.className} text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight`}
+              className={`${orbitron.className} text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight`}
             >
               <strong className="block text-orange-500">RICHEE</strong>
               <span className="text-gray-300 text-2xl md:text-3xl block mt-2 uppercase tracking-wider">Lead Designer</span>

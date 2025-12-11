@@ -11,7 +11,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import styles from "@/app/ui/home.module.css";
-import { lusitana } from "@/app/ui/fonts";
+import { orbitron } from "@/app/ui/fonts";
 import { useState } from "react";
 import Carousel from "@/app/ui/carousel/carousel";
 import { signIn } from "next-auth/react";
@@ -64,7 +64,7 @@ export default function SignupPage() {
           {/* Left Column: Text */}
           <div className="flex flex-col justify-center py-10 md:w-1/2 text-center md:text-left">
             <h1
-              className={`${lusitana.className} text-4xl sm:text-5xl md:text-6xl text-white font-extrabold mb-8 leading-tight`}
+              className={`${orbitron.className} text-4xl sm:text-5xl md:text-6xl text-white font-extrabold mb-8 leading-tight`}
             >
               <strong className="block text-orange-500">OPERATOR ACCESS</strong>
               <span className="text-gray-300 text-3xl md:text-4xl block mt-2">

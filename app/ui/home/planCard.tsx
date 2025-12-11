@@ -38,17 +38,17 @@ export default function PricingCard({
 
   // Determine the border color and scale based on highlight status
   const cardClasses = `
-        bg-gray-800 p-8 rounded-xl shadow-2xl 
+        bg-spartans-gray-dark p-8 rounded-xl shadow-2xl 
         transition-all duration-500 ease-in-out 
-        hover:scale-[1.05] hover:shadow-primary-lg my-10
+        hover:scale-[1.05] hover:shadow-red-glow my-10
         border-t-4 ${color} h-full flex flex-col relative
-        ${highlight ? "shadow-yellow-500/30" : "hover:shadow-blue-500/30"}
+        ${highlight ? "ring-2 ring-spartans-red" : ""}
     `;
 
   return (
     <div className={cardClasses}>
       {highlight && (
-        <div className="absolute top-0 right-0 -mt-3 -mr-3 px-3 py-1 bg-yellow-500 text-gray-900 text-xs font-bold uppercase rounded-full tracking-wider shadow-lg">
+        <div className="absolute top-0 right-0 -mt-3 -mr-3 px-3 py-1 bg-spartans-red text-white text-xs font-bold uppercase rounded-full tracking-wider shadow-red-glow">
           Recommended
         </div>
       )}
@@ -61,7 +61,7 @@ export default function PricingCard({
       </header>
 
       <div className="mb-8 border-b border-gray-700 pb-6">
-        <span className="text-5xl font-extrabold text-blue-400">{price}</span>
+        <span className="text-5xl font-extrabold text-spartans-red">{price}</span>
         <span className="text-lg font-medium text-gray-300 ml-2">/ month</span>
         <p className="mt-2 text-xl font-semibold text-gray-200">{users}</p>
       </div>
@@ -113,11 +113,11 @@ export default function PricingCard({
 
       <button
         className={`w-full py-3 mt-auto rounded-lg text-lg font-bold uppercase tracking-wider 
-                            transition duration-300 
+                            transition duration-300 border
                             ${
                               highlight
-                                ? "bg-yellow-500 text-gray-900 hover:bg-yellow-400 shadow-lg shadow-yellow-500/50"
-                                : "bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-600/50"
+                                ? "bg-spartans-red text-white hover:bg-spartans-red-dark shadow-red-glow border-spartans-red"
+                                : "bg-spartans-red-dark text-white hover:bg-spartans-red shadow-lg border-spartans-red/50"
                             }`}
         onClick={() => handlePlanSelection(id)} // Add your checkout function here
       >

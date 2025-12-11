@@ -1,9 +1,10 @@
 .headerContainer {
-    background-color: #0e0e13;
+    background-color: #171717;
+    border-bottom: 1px solid rgba(220, 38, 38, 0.2);
 }
 
 .borderBottom {
-    border-color: #A0A2AB;
+    border-color: rgba(220, 38, 38, 0.2);
 }
 
 .linkContainer {
@@ -16,7 +17,35 @@
 .linkItem {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
     color: #a0a2ab;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
+.linkItem:hover {
+    color: #dc2626;
+}
+
+.linkItem::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #dc2626, #991b1b);
+    transition: width 0.3s ease;
+}
+
+.linkItem:hover::after {
+    width: 100%;
+}
+
+.linkActive {
+    color: #dc2626;
 }
 
 .rightSide {
@@ -34,23 +63,35 @@
     align-items: center;
     justify-content: center;
     color: #a0a2ab;
+    transition: color 0.3s ease;
+}
+
+.languageSelectore:hover {
+    color: #dc2626;
 }
 
 .clasicButton {
-    font-size: 1.25rem !important;
+    font-size: 1rem !important;
     color: #fff !important;
-    font-family: Open Sans !important;
-    font-weight: 500 !important;
-    border: 1px solid #900b09;
-    border-radius: .375rem;
-    background-color: rgba(255, 4, 0, .1);
-    padding-inline: 1em !important;
+    font-family: inherit !important;
+    font-weight: 600 !important;
+    border: 1px solid #991b1b;
+    border-radius: 0.25rem;
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(153, 27, 27, 0.1));
+    padding: 0.5rem 1.5rem !important;
     margin-left: 1em;
-    padding: 6 20 6 20;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
+
 .clasicButton:hover {
-    background-color: #900b09a8 !important;
+    background: linear-gradient(135deg, #991b1b, #dc2626);
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+    transform: translateY(-2px);
 }
+
 .background {
-    background-color: #111112;
+    background-color: #262626;
+    border-top: 1px solid rgba(220, 38, 38, 0.2);
 }

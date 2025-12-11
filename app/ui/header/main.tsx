@@ -36,16 +36,16 @@ export default function NavBar() {
   return (
     // Use an accessible tag like <nav> for navigation
     <nav className={clsx(
-        `fixed w-full top-0 left-0 z-40`, // Added z-index and sticky for common header behavior
+        `fixed w-full top-0 left-0 z-40 backdrop-blur-sm`, // Added z-index and sticky for common header behavior
         styles.headerContainer,
         styles.borderBottom // Assuming this controls the border color/style
       )}
     >
-      {/* Military corner brackets */}
-      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500 opacity-50"></div>
-      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500 opacity-50"></div>
-      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500 opacity-50"></div>
-      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500 opacity-50"></div>
+      {/* Military corner brackets - Updated to red theme */}
+      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-spartans-red opacity-60"></div>
+      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-spartans-red opacity-60"></div>
+      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-spartans-red opacity-60"></div>
+      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-spartans-red opacity-60"></div>
       <div className={`container mx-auto px-4 sm:px-6 lg:px-8 py-3`}>
         <div className={`flex justify-between items-center`}>
           
@@ -116,7 +116,7 @@ export default function NavBar() {
             
             {/* Register/Login Button */}
             <Link href={"/signup"}>
-              <button type="button" className="bg-orange-600 hover:bg-orange-700 text-white font-bold px-6 py-2 uppercase tracking-widest transition-all text-sm">
+              <button type="button" className="bg-spartans-red-dark hover:bg-spartans-red text-white font-bold px-6 py-2 uppercase tracking-widest transition-all text-sm border border-spartans-red/50 hover:shadow-red-glow">
                 Access Terminal
               </button>
             </Link>

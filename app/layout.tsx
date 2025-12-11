@@ -1,5 +1,5 @@
 import "@/app/ui/global.css";
-import { inter } from "@/app/ui/fonts";
+import { roboto, orbitron } from "@/app/ui/fonts";
 import ResponsiveHeader from "@/app/ui/header/headerLayout";
 import ResponsiveFooter from "@/app/ui/footer/footer";
 import { Metadata } from "next";
@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${roboto.variable} ${orbitron.variable} font-sans antialiased`}>
         <header>
           <ResponsiveHeader />
         </header>

@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 // Assuming this provides a dark base background color
 import styles from "@/app/ui/home.module.css";
-import { lusitana } from "@/app/ui/fonts";
 import Image from "next/image";
 import FeatureCard from "@/app/ui/home/FeatureCard";
 import PlanCard from "@/app/ui/home/planCard";
@@ -20,9 +19,9 @@ import { success } from "zod";
 
 // Define consistent gradient styles (Full Width)
 const GRADIENT_HERO =
-  "bg-gradient-to-br from-gray-900 via-gray-950 to-gray-800";
+  "bg-gradient-to-br from-spartans-black via-spartans-gray-darker to-spartans-gray-dark";
 const GRADIENT_FEATURES =
-  "bg-gradient-to-tl from-gray-900 via-gray-800 to-gray-950";
+  "bg-gradient-to-tl from-spartans-gray-dark via-spartans-black to-spartans-gray-darker";
 
 export default function Page() {
   const router = useRouter();
@@ -77,10 +76,10 @@ export default function Page() {
         className={`w-full py-16 px-6 ${GRADIENT_HERO} flex flex-grow items-center justify-center relative`}
       >
         {/* Military corner brackets */}
-        <div className="absolute top-4 left-4 w-16 h-16 border-t-4 border-l-4 border-orange-500 opacity-50"></div>
-        <div className="absolute top-4 right-4 w-16 h-16 border-t-4 border-r-4 border-orange-500 opacity-50"></div>
-        <div className="absolute bottom-4 left-4 w-16 h-16 border-b-4 border-l-4 border-orange-500 opacity-50"></div>
-        <div className="absolute bottom-4 right-4 w-16 h-16 border-b-4 border-r-4 border-orange-500 opacity-50"></div>
+        <div className="absolute top-4 left-4 w-16 h-16 border-t-4 border-l-4 border-spartans-red opacity-60"></div>
+        <div className="absolute top-4 right-4 w-16 h-16 border-t-4 border-r-4 border-spartans-red opacity-60"></div>
+        <div className="absolute bottom-4 left-4 w-16 h-16 border-b-4 border-l-4 border-spartans-red opacity-60"></div>
+        <div className="absolute bottom-4 right-4 w-16 h-16 border-b-4 border-r-4 border-spartans-red opacity-60"></div>
         <div
           // INNER CONTAINER: Centered content, max width
           className={`container flex flex-col gap-10 md:flex-row items-center mx-10 relative z-10`}
@@ -88,19 +87,19 @@ export default function Page() {
           {/* Left Column: Text and CTA (Centered Horizontally) */}
           <div className="flex flex-col justify-center py-10 md:w-2/5 text-center">
             <h1
-              className={`${lusitana.className} text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight`}
+              className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight"
             >
-              <strong className="block text-orange-500">WELCOME TO SPEAR</strong>
+              <strong className="block text-spartans-red">WELCOME TO SPEAR</strong>
               <span className="text-gray-300 text-2xl md:text-3xl block mt-2 uppercase tracking-wider">Mission Command</span>
             </h1>
 
             <p
-              className={`text-base text-gray-300 md:leading-relaxed p-4 mb-6 border-l-4 border-orange-500 bg-gray-900/50 backdrop-blur-sm mx-auto max-w-md font-mono text-left`}
+              className={`text-base text-gray-300 md:leading-relaxed p-4 mb-6 border-l-4 border-spartans-red bg-spartans-gray-dark/50 backdrop-blur-sm mx-auto max-w-md font-mono text-left`}
             >
               {`>`} What if I told you that you can have this for free?{" "}
               <Link
                 href="#prices"
-                className="text-orange-400 hover:text-orange-300 transition-colors font-semibold underline"
+                className="text-spartans-red hover:text-red-400 transition-colors font-semibold underline"
               >
                 SPEAR Bundles
               </Link>
@@ -110,7 +109,7 @@ export default function Page() {
             {/* CTA Button: Centered using mx-auto */}
             <Link
               href="/login"
-              className="flex items-center gap-3 mx-auto self-start bg-orange-600 hover:bg-orange-700 px-8 py-4 text-base font-bold text-white uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-orange-900/20 mt-4"
+              className="flex items-center gap-3 mx-auto self-start bg-spartans-red-dark hover:bg-spartans-red px-8 py-4 text-base font-bold text-white uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 shadow-red-glow border border-spartans-red/50 mt-4"
             >
               <span>Deploy Now</span> <ArrowRightIcon className="w-5 h-5" />
             </Link>
@@ -139,22 +138,22 @@ export default function Page() {
         </div>
       </div>
       <div
-        className={`bg-gray-900/90 h-auto py-8 w-full flex flex-row items-center justify-center gap-8 md:gap-16 border-y-2 border-orange-500/30 shadow-2xl flex-wrap px-4 relative`}
+        className={`bg-spartans-gray-dark/90 h-auto py-8 w-full flex flex-row items-center justify-center gap-8 md:gap-16 border-y-2 border-spartans-red/30 shadow-2xl flex-wrap px-4 relative`}
       >
-        <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-orange-500"></div>
-        <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-orange-500"></div>
-        <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-orange-500"></div>
-        <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-orange-500"></div>
+        <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-spartans-red"></div>
+        <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-spartans-red"></div>
+        <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-spartans-red"></div>
+        <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-spartans-red"></div>
         <div className={`text-white text-center group`}>
-          <h3 className={`font-bold text-3xl md:text-4xl text-orange-500 mb-1`}>5</h3>
+          <h3 className={`font-bold text-3xl md:text-4xl text-spartans-red mb-1`}>5</h3>
           <p className={`text-gray-400 text-xs md:text-sm uppercase tracking-widest font-mono`}>Active Customers</p>
         </div>
         <div className={`text-white text-center group`}>
-          <h3 className={`font-bold text-3xl md:text-4xl text-orange-500 mb-1`}>25</h3>
+          <h3 className={`font-bold text-3xl md:text-4xl text-spartans-red mb-1`}>25</h3>
           <p className={`text-gray-400 text-xs md:text-sm uppercase tracking-widest font-mono`}>InDev Features</p>
         </div>
         <div className={`text-white text-center group`}>
-          <h3 className={`font-bold text-3xl md:text-4xl text-orange-500 mb-1`}>50</h3>
+          <h3 className={`font-bold text-3xl md:text-4xl text-spartans-red mb-1`}>50</h3>
           <p className={`text-gray-400 text-xs md:text-sm uppercase tracking-widest font-mono`}>Already Features</p>
         </div>
       </div>
@@ -163,17 +162,17 @@ export default function Page() {
       {/* Note: Feature sections are usually NOT vertically centered; they flow naturally. */}
       <div className={`w-full py-20 justify-center px-10 ${GRADIENT_FEATURES} relative`}>
         {/* Military corner brackets */}
-        <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 border-orange-500 opacity-30"></div>
-        <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 border-orange-500 opacity-30"></div>
-        <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-orange-500 opacity-30"></div>
-        <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-orange-500 opacity-30"></div>
+        <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 border-spartans-red opacity-40"></div>
+        <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 border-spartans-red opacity-40"></div>
+        <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-spartans-red opacity-40"></div>
+        <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-spartans-red opacity-40"></div>
         <div
           // INNER CONTAINER: Centered content
           className={`container mx-auto flex flex-col gap-12 justify-center relative z-10`}
         >
           {/* Section Header (Already Centered) */}
           <div className="flex flex-col justify-center text-center">
-            <h2 className={`text-4xl font-bold text-orange-500 mb-3 uppercase tracking-wider`}>
+            <h2 className={`text-4xl font-bold text-spartans-red mb-3 uppercase tracking-wider`}>
               // Operational Tools
             </h2>
             <p className="text-gray-300 text-lg max-w-4xl mx-auto font-mono">
@@ -202,14 +201,14 @@ export default function Page() {
       </div>
       <div className={`w-full py-20 ${GRADIENT_FEATURES} relative`} id="prices">
         {/* Military corner brackets */}
-        <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 border-orange-500 opacity-30"></div>
-        <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 border-orange-500 opacity-30"></div>
-        <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-orange-500 opacity-30"></div>
-        <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-orange-500 opacity-30"></div>
+        <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 border-spartans-red opacity-40"></div>
+        <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 border-spartans-red opacity-40"></div>
+        <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-spartans-red opacity-40"></div>
+        <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-spartans-red opacity-40"></div>
         <div className="relative z-10">
           {/* Section Header (Already Centered) */}
           <div className="flex flex-col justify-center text-center">
-            <h2 className={`text-4xl font-bold text-orange-500 mb-3 uppercase tracking-wider`}>
+            <h2 className={`text-4xl font-bold text-spartans-red mb-3 uppercase tracking-wider`}>
               // Deployment Tiers
             </h2>
             <p className="text-gray-300 text-lg max-w-4xl mx-auto font-mono">
@@ -322,13 +321,13 @@ export default function Page() {
 
       <div className={`w-full flex justify-center p-8 ${GRADIENT_FEATURES} relative`}>
         {/* Military corner brackets */}
-        <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 border-orange-500 opacity-30"></div>
-        <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 border-orange-500 opacity-30"></div>
-        <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-orange-500 opacity-30"></div>
-        <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-orange-500 opacity-30"></div>
+        <div className="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 border-spartans-red opacity-40"></div>
+        <div className="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 border-spartans-red opacity-40"></div>
+        <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-spartans-red opacity-40"></div>
+        <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-spartans-red opacity-40"></div>
         <div className="w-full p-8 relative z-10">
           <div className="flex flex-col justify-center text-center">
-            <h2 className={`text-4xl font-bold text-orange-500 mb-3 uppercase tracking-wider`}>
+            <h2 className={`text-4xl font-bold text-spartans-red mb-3 uppercase tracking-wider`}>
               // Transmission Channel
             </h2>
             <p className="text-gray-300 text-lg max-w-4xl mx-auto font-mono mb-4">
@@ -352,7 +351,7 @@ export default function Page() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-xs font-mono text-orange-500 mb-1 uppercase tracking-widest"
+                  className="block text-xs font-mono text-spartans-red mb-1 uppercase tracking-widest"
                 >
                   Callsign (Name)
                 </label>
@@ -361,7 +360,7 @@ export default function Page() {
                   type="text"
                   placeholder="Andreas Brown"
                   {...register("name")}
-                  className="w-full bg-gray-800 text-white p-3 border border-gray-600 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors font-mono"
+                  className="w-full bg-spartans-gray-dark text-white p-3 border border-gray-600 focus:border-spartans-red focus:ring-1 focus:ring-spartans-red transition-colors font-mono"
                 />
                 {errors.name && (
                   <p className="mt-1 text-sm text-red-400">
@@ -374,7 +373,7 @@ export default function Page() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-xs font-mono text-orange-500 mb-1 uppercase tracking-widest"
+                  className="block text-xs font-mono text-spartans-red mb-1 uppercase tracking-widest"
                 >
                   Comms (Email)
                 </label>
@@ -383,7 +382,7 @@ export default function Page() {
                   type="email"
                   placeholder="operator@spear.com"
                   {...register("email")}
-                  className="w-full bg-gray-800 text-white p-3 border border-gray-600 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors font-mono"
+                  className="w-full bg-spartans-gray-dark text-white p-3 border border-gray-600 focus:border-spartans-red focus:ring-1 focus:ring-spartans-red transition-colors font-mono"
                 />
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-400">
@@ -396,7 +395,7 @@ export default function Page() {
               <div>
                 <label
                   htmlFor="question"
-                  className="block text-xs font-mono text-orange-500 mb-1 uppercase tracking-widest"
+                  className="block text-xs font-mono text-spartans-red mb-1 uppercase tracking-widest"
                 >
                   Message Content
                 </label>
@@ -405,7 +404,7 @@ export default function Page() {
                   rows={4}
                   placeholder="Enter your inquiry or feedback..."
                   {...register("question")}
-                  className="w-full bg-gray-800 text-white p-3 border border-gray-600 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors resize-none font-mono"
+                  className="w-full bg-spartans-gray-dark text-white p-3 border border-gray-600 focus:border-spartans-red focus:ring-1 focus:ring-spartans-red transition-colors resize-none font-mono"
                 />
                 {errors.question && (
                   <p className="mt-1 text-sm text-red-400">
@@ -414,7 +413,7 @@ export default function Page() {
                 )}
               </div>
               <div className="flex items-start">
-                <input id="agreeToTerms" type="checkbox" {...register("agreeToTerms")} className="mt-1 accent-orange-500" />
+                <input id="agreeToTerms" type="checkbox" {...register("agreeToTerms")} className="mt-1 accent-spartans-red" />
                 <label
                   htmlFor="agreeToTerms"
                   className="ml-2 text-sm text-gray-300 font-mono"
@@ -432,7 +431,7 @@ export default function Page() {
               <button
                 type="submit"
                 disabled={isSubmitting} // Zablokuje tlačidlo počas odosielania
-                className="w-full py-3 mt-4 text-white font-bold bg-orange-600 hover:bg-orange-700 transition-all ease-in-out shadow-lg transform hover:scale-[1.02] active:scale-95 disabled:bg-gray-700 disabled:cursor-not-allowed uppercase tracking-widest"
+                className="w-full py-3 mt-4 text-white font-bold bg-spartans-red-dark hover:bg-spartans-red transition-all ease-in-out shadow-red-glow transform hover:scale-[1.02] active:scale-95 disabled:bg-gray-700 disabled:cursor-not-allowed uppercase tracking-widest border border-spartans-red/50"
               >
                 {isSubmitting ? "TRANSMITTING..." : "Send Transmission"}
               </button>
