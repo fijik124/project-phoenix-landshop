@@ -61,25 +61,43 @@ export default function Page() {
       
       {/* --- HERO SECTION WRAPPER: Full-width background and gradient --- */}
       {/* 2. Added h-screen and items-center to vertically center the Hero content */}
-      <div className={`w-full py-16 px-6 ${GRADIENT_HERO} flex flex-col items-center text-center justify-center text-white`}>
-        <div className={`mx-10 pt-[65px]`}>
-        <h1 className={`text-3xl mb-3`}>Lets Look for your questions</h1>
-        <p className={`text-sm text-gray-500`}>On this page, you will find all the questions you have asked us many times. For your clarification, we provide answers to these questions on this page.</p>
-        <br />
-        <br />
-        <h2 className={`mb-5 mt-5 text-xl`}>Basic Informations</h2>
+      <div className={`w-full py-16 px-6 ${GRADIENT_HERO} flex flex-col items-center text-center justify-center text-white relative`}>
+        {/* Military corner brackets */}
+        <div className="absolute top-4 left-4 w-16 h-16 border-t-4 border-l-4 border-orange-500 opacity-50"></div>
+        <div className="absolute top-4 right-4 w-16 h-16 border-t-4 border-r-4 border-orange-500 opacity-50"></div>
+        <div className="absolute bottom-4 left-4 w-16 h-16 border-b-4 border-l-4 border-orange-500 opacity-50"></div>
+        <div className="absolute bottom-4 right-4 w-16 h-16 border-b-4 border-r-4 border-orange-500 opacity-50"></div>
         
-        <Accordion faqData={FAQ_DATA}/>
+        <div className={`mx-10 pt-[65px] relative z-10 max-w-5xl`}>
+        <h1 className={`text-4xl md:text-5xl font-bold mb-4 text-orange-500 uppercase tracking-wider`}>Intel Database</h1>
+        <p className={`text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-12 font-mono`}>{`>`} On this page, you will find all the questions you have asked us many times. For your clarification, we provide answers to these questions on this page.</p>
+        
+        <div className="space-y-12">
+          <div className="border-l-4 border-orange-500 pl-4">
+            <h2 className={`mb-5 text-2xl md:text-3xl font-semibold text-orange-500 uppercase tracking-wider font-mono`}>// Basic Informations</h2>
+            <Accordion faqData={FAQ_DATA}/>
+          </div>
 
-        <h2 className={`mb-5 mt-5 text-xl`}>Billing Informations</h2>
+          <div className="border-l-4 border-orange-500 pl-4">
+            <h2 className={`mb-5 text-2xl md:text-3xl font-semibold text-orange-500 uppercase tracking-wider font-mono`}>// Billing Informations</h2>
+            <Accordion faqData={faqBillingData}/>
+          </div>
+
+          <div className="border-l-4 border-orange-500 pl-4">
+            <h2 className={`mb-5 text-2xl md:text-3xl font-semibold text-orange-500 uppercase tracking-wider font-mono`}>// Update Informations</h2>
+            <Accordion faqData={faqUpdateData}/>
+          </div>
+
+          <div className="border-l-4 border-orange-500 pl-4">
+            <h2 className={`mb-5 text-2xl md:text-3xl font-semibold text-orange-500 uppercase tracking-wider font-mono`}>// Project Informations</h2>
+            <Accordion faqData={faqProjectData}/>
+          </div>
+        </div>
         
-        <Accordion faqData={faqBillingData}/>
-        <h2 className={`mb-5 mt-5 text-xl`}>Update Informations</h2>
-        
-        <Accordion faqData={faqUpdateData}/>
-        <h2 className={`mb-5 mt-5 text-xl`}>Project Informations</h2>
-        
-        <Accordion faqData={faqProjectData}/>
+        <p className={`text-xs text-gray-500 mt-12 font-mono`}>
+          &gt; SYSTEM STATUS: <span className="text-green-500 animate-pulse">ONLINE</span><br />
+          &gt; DATABASE: <span className="text-orange-500">ACCESSIBLE</span>
+        </p>
         </div>
       </div>
     </main>

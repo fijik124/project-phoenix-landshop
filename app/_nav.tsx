@@ -53,7 +53,7 @@ export const SUB_LINKS = [
   {
     group: "about",
     name: "Our Team",
-    href: "",
+    href: "/who",
     description: "Basic info about us as developers and 'company'.",
     icon: UserGroupIcon,
   },

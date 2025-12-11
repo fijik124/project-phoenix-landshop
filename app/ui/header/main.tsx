@@ -41,6 +41,11 @@ export default function NavBar() {
         styles.borderBottom // Assuming this controls the border color/style
       )}
     >
+      {/* Military corner brackets */}
+      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500 opacity-50"></div>
+      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500 opacity-50"></div>
+      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500 opacity-50"></div>
+      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500 opacity-50"></div>
       <div className={`container mx-auto px-4 sm:px-6 lg:px-8 py-3`}>
         <div className={`flex justify-between items-center`}>
           
@@ -111,8 +116,8 @@ export default function NavBar() {
             
             {/* Register/Login Button */}
             <Link href={"/signup"}>
-              <button type="button" className={styles.clasicButton}>
-                Register
+              <button type="button" className="bg-orange-600 hover:bg-orange-700 text-white font-bold px-6 py-2 uppercase tracking-widest transition-all text-sm">
+                Access Terminal
               </button>
             </Link>
           </div>

@@ -12,11 +12,16 @@ export default function Footer() {
   const pathname = usePathname();
   return (
     <nav className={clsx(
-        `flex w-full bottom-0 left-0 z-40`, 
+        `flex w-full bottom-0 left-0 z-40 relative`, 
         styles.headerContainer,
         styles.borderBottom 
       )}
     >
+      {/* Military corner brackets */}
+      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500 opacity-50"></div>
+      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500 opacity-50"></div>
+      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500 opacity-50"></div>
+      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500 opacity-50"></div>
       <div className={`container mx-auto px-4 sm:px-6 lg:px-8 py-3`}>
         <div className={`flex justify-between items-center`}>
           
@@ -27,25 +32,27 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className={`text-white`}>© Copyright SPARTANS, all rights reserved</p>
+            <p className={`text-gray-400 text-sm font-mono`}>
+              {`>`} © 2025 SPARTANS // ALL RIGHTS RESERVED
+            </p>
           </div>
 
           <div className={`flex flex-row items-start gap-16 text-white`}> 
             
             {/* Column 1: About US */}
             <div className={`flex flex-col items-start`}>
-                <h3 className="font-semibold mb-2">About US:</h3>
-                <Link href="/faq" className={`text-sm text-gray-500 hover:text-gray-400`}>FAQ</Link>
-                <Link href="/who" className={`text-sm text-gray-500 hover:text-gray-400`}>Our Team</Link>
-                <Link href="/about" className={`text-sm text-gray-500 hover:text-gray-400`}>About</Link>
+                <h3 className="font-bold mb-3 text-orange-500 uppercase tracking-wider text-sm font-mono">// About</h3>
+                <Link href="/faq" className={`text-sm text-gray-400 hover:text-orange-400 transition-colors font-mono`}>FAQ</Link>
+                <Link href="/who" className={`text-sm text-gray-400 hover:text-orange-400 transition-colors font-mono`}>Our Team</Link>
+                <Link href="/about" className={`text-sm text-gray-400 hover:text-orange-400 transition-colors font-mono`}>About</Link>
             </div>
             
             {/* Column 2: Contact US */}
             <div className={`flex flex-col items-start`}>
-                <h3 className="font-semibold mb-2">Contact US:</h3>
-                <Link href="/contact" className={`text-sm text-gray-500 hover:text-gray-400`}>Contact Form</Link>
-                <a href="mailto:support@spear.com" className={`text-sm text-gray-500 hover:text-gray-400`}>support@spear.com</a>
-                <a href="tel:+421900000000" className={`text-sm text-gray-500 hover:text-gray-400`}>+421 900 000 000</a>
+                <h3 className="font-bold mb-3 text-orange-500 uppercase tracking-wider text-sm font-mono">// Contact</h3>
+                <Link href="/contact" className={`text-sm text-gray-400 hover:text-orange-400 transition-colors font-mono`}>Contact Form</Link>
+                <a href="mailto:support@spear.com" className={`text-sm text-gray-400 hover:text-orange-400 transition-colors font-mono`}>support@spear.com</a>
+                <a href="tel:+421900000000" className={`text-sm text-gray-400 hover:text-orange-400 transition-colors font-mono`}>+421 900 000 000</a>
             </div>
           </div>
         </div>
